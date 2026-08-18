@@ -1,0 +1,17 @@
+[package]
+name = "header42-lsp"
+version = "0.1.0"
+edition = "2021"
+authors = ["Gabri <contact@42.fr>"]
+description = "Language Server Protocol for 42 standard headers"
+
+[dependencies]
+tokio = { version = "1.38", features = ["full"] }
+tower-lsp = "0.20.0"
+chrono = "0.4.38"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+regex = "1.10.5"
+
+[dev-dependencies]
+tokio-test = "0.4.4"
