@@ -1,0 +1,32 @@
+id = "42header"
+name = "42 Header"
+version = "0.1.0"
+schema_version = 1
+authors = ["Gabri <contact@42.fr>"]
+description = "Official 42 School file header insertion and automatic timestamp updater for Zed."
+repository = "https://github.com/fkyros/zed-42header"
+
+[language_servers.header42-lsp]
+name = "42 Header Language Server"
+languages = [
+    "C",
+    "C++",
+    "Rust",
+    "Python",
+    "Go",
+    "Java",
+    "JavaScript",
+    "TypeScript",
+    "TSX",
+    "HTML",
+    "CSS",
+    "SCSS",
+    "Lua",
+    "Makefile",
+    "Shell Script",
+    "Assembly",
+    "Vimscript",
+    "PHP",
+    "Kotlin",
+    "OCaml"
+]

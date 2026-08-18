@@ -1,0 +1,13 @@
+[package]
+name = "zed-42header"
+version = "0.1.0"
+edition = "2021"
+authors = ["Gabri <contact@42.fr>"]
+description = "Zed extension for 42 Header"
+
+[lib]
+crate-type = ["cdylib"]
+path = "lib.rs"
+
+[dependencies]
+zed_extension_api = "0.7.0"
