@@ -8,18 +8,18 @@ Automatically inserts the 11-line 42 header with official ASCII art and updates 
 
 ## Installation
 
-### 1. Clone & Build Language Server
-```bash
-git clone https://github.com/fkyros/zed-42header.git
-cd zed-42header
-cargo build --release -p header42-lsp
-cp target/release/header42-lsp ~/.cargo/bin/ # or /usr/local/bin or /opt/homebrew/bin
-```
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/fkyros/zed-42header.git
+   ```
 
-### 2. Install Dev Extension in Zed
-1. Open Zed.
-2. Press `Cmd+Shift+P` (macOS) / `Ctrl+Shift+P` (Linux/Windows) and run **`zed: install dev extension`**.
-3. Select the `zed-42header` repository directory.
+2. **Install in Zed**:
+   * Open Zed.
+   * Press `Cmd+Shift+P` (macOS) / `Ctrl+Shift+P` (Linux/Windows) and run **`zed: install dev extension`**.
+   * Select the cloned `zed-42header` folder.
+
+> [!NOTE]
+> **Zero build tools needed**: When the extension starts, its WebAssembly bridge automatically fetches the matching pre-compiled `header42-lsp` server binary for your OS and CPU (macOS Apple Silicon/Intel, Linux, Windows) directly from this repo's [GitHub Releases](https://github.com/fkyros/zed-42header/releases). No Rust or Cargo installation is required.
 
 ---
 
