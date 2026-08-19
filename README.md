@@ -41,16 +41,26 @@ To configure your own 42 login and email:
         "mail": "your_42_login@student.42.fr"
       }
     }
+  },
+  "languages": {
+    "C": { "language_servers": ["header42-lsp", "..."] },
+    "C++": { "language_servers": ["header42-lsp", "..."] },
+    "Python": { "language_servers": ["header42-lsp", "..."] },
+    "Makefile": { "language_servers": ["header42-lsp", "..."] }
   }
 }
 ```
+
+> [!NOTE]
+> **Why is `languages` needed in `settings.json`?**  
+> Zed uses the Language Server Protocol (LSP) to update timestamps on save. For languages with built-in servers (like `clangd` for C/C++), Zed only runs its default server unless told to run `header42-lsp` alongside it using `"..."`.
 
 ---
 
 ## Keybindings (Optional)
 
-To bind `F1` (standard 42 Vim shortcut) or `Cmd+Shift+H`:
-1. Press `Cmd+Shift+P` / `Ctrl+Shift+P` and select **`zed: open keymap`**.
+To bind **`Cmd+Shift+H`** or **`F1`** (standard 42 Vim shortcut) for one-click header insertion:
+1. Press `Cmd+Shift+P` (macOS) / `Ctrl+Shift+P` (Linux/Windows) and select **`zed: open keymap`**.
 2. Paste the following into `keymap.json`:
 
 ```json
@@ -70,8 +80,8 @@ To bind `F1` (standard 42 Vim shortcut) or `Cmd+Shift+H`:
 
 ## How to Use
 
-1. **Insert Header**: Press `F1` (or `Cmd+.` / `Ctrl+.`) in any file and select **"Insert 42 Header"**.
-2. **Auto-Update Timestamp**: Save the file (`Cmd+S` / `Ctrl+S`). The `Updated:` line updates automatically on every save.
+1. **Insert Header**: Press **`Cmd+Shift+H`** or **`F1`** in any file and select **"Insert 42 Header"**.
+2. **Auto-Update Timestamp**: Save the file (**`Cmd+S`** / **`Ctrl+S`**). The `Updated:` line on line 9 updates automatically on every save.
 
 ---
 
