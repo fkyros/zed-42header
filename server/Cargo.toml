@@ -1,8 +1,8 @@
 [package]
 name = "header42-lsp"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
-authors = ["Gabri & 42 Community <github.com/fkyros>"]
+authors = ["gade-oli <gade-oli@student.42madrid.com>"]
 description = "Language Server Protocol for 42 standard headers (Community port for Zed Editor)"
 license = "MIT"
 repository = "https://github.com/fkyros/zed-42header"

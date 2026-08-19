@@ -1,6 +1,6 @@
 id = "42header"
 name = "42 Header"
-version = "0.1.0"
+version = "0.1.1"
 schema_version = 1
 authors = ["gade-oli <gade-oli@student.42madrid.com>"]
 description = "42 School file header"
