@@ -2,8 +2,10 @@
 name = "zed-42header"
 version = "0.1.0"
 edition = "2021"
-authors = ["Gabri <contact@42.fr>"]
-description = "Zed extension for 42 Header"
+authors = ["Gabri & 42 Community <github.com/fkyros>"]
+description = "Community-driven port of the 42 School file header for Zed Editor"
+license = "MIT"
+repository = "https://github.com/fkyros/zed-42header"
 
 [lib]
 crate-type = ["cdylib"]

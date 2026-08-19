@@ -1,8 +1,8 @@
 # 42 Header for Zed
 
-Official port of the standardized [`42paris/42header`](https://github.com/42paris/42header) plugin for the [Zed Editor](https://zed.dev).
+Community-driven port of the standardized [`42Paris/42header`](https://github.com/42Paris/42header) plugin for the [Zed Editor](https://zed.dev).
 
-`zed-42header` automatically inserts the standardized 42 Network 11-line file header and updates timestamps on save across all major languages used in the 42 curriculum.
+`zed-42header` is an independent, community-driven port that automatically inserts the standardized 42 Network 11-line file header and updates timestamps on save across all major languages used in the 42 curriculum.
 
 ---
 
@@ -110,5 +110,7 @@ The extension consists of two components:
 
 ## License
 
-MIT License. See [LICENSE](LICENSE) for details.
+This project is licensed under the [MIT License](LICENSE).
+
+Upstream 42 header formatting and ASCII art are ported from [`42Paris/42header`](https://github.com/42Paris/42header), which is dedicated to the Public Domain.
 

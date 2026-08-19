@@ -2,8 +2,8 @@ id = "42header"
 name = "42 Header"
 version = "0.1.0"
 schema_version = 1
-authors = ["Gabri <contact@42.fr>"]
-description = "Official 42 School file header insertion and automatic timestamp updater for Zed."
+authors = ["fkyros <github.com/fkyros>"]
+description = "Community-driven port of the 42 School file header for Zed Editor"
 repository = "https://github.com/fkyros/zed-42header"
 
 [language_servers.header42-lsp]

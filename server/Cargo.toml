@@ -2,8 +2,10 @@
 name = "header42-lsp"
 version = "0.1.0"
 edition = "2021"
-authors = ["Gabri <contact@42.fr>"]
-description = "Language Server Protocol for 42 standard headers"
+authors = ["Gabri & 42 Community <github.com/fkyros>"]
+description = "Language Server Protocol for 42 standard headers (Community port for Zed Editor)"
+license = "MIT"
+repository = "https://github.com/fkyros/zed-42header"
 
 [dependencies]
 tokio = { version = "1.38", features = ["full"] }
