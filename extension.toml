@@ -2,7 +2,7 @@ id = "42header"
 name = "42 Header"
 version = "0.1.0"
 schema_version = 1
-authors = ["Gabri & 42 Community <github.com/fkyros>"]
+authors = ["gade-oli <gade-oli@student.42madrid.com>"]
 description = "Community-driven port of the 42 School file header for Zed Editor"
 repository = "https://github.com/fkyros/zed-42header"
 
@@ -34,4 +34,3 @@ languages = [
     "Vimscript",
     "XML"
 ]
-

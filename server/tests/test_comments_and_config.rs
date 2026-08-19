@@ -102,9 +102,15 @@ fn test_identity_resolution_settings_priority() {
 }
 
 #[test]
+fn test_identity_resolution_default_fallback() {
+    let (user, mail) = resolve_identity(None, None);
+    assert_eq!(user, "marvin");
+    assert_eq!(mail, "marvin@student.42.fr");
+}
+
+#[test]
 fn test_identity_resolution_user_provided_mail_fallback() {
     let (user, mail) = resolve_identity(Some("login42"), None);
     assert_eq!(user, "login42");
-    // Should fallback to <user>@student.42.fr if no mail env var set or overridden
-    assert!(mail.contains("login42") || mail.ends_with("@student.42.fr"));
+    assert_eq!(mail, "login42@student.42.fr");
 }
