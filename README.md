@@ -6,14 +6,30 @@ Automatically inserts the 11-line 42 header with official ASCII art and updates 
 
 ---
 
-## Installation & Setup
+## Installation
 
-### 1. Install Extension in Zed
-* **From Extension Registry**: Open Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`), run `zed: extensions`, search for **42 Header**, and click **Install**.
-* **Local Dev**: Run `zed: install dev extension` and select this repository folder.
+### 1. Clone & Build Language Server
+```bash
+git clone https://github.com/fkyros/zed-42header.git
+cd zed-42header
+cargo build --release -p header42-lsp
+cp target/release/header42-lsp ~/.cargo/bin/ # or /usr/local/bin or /opt/homebrew/bin
+```
 
-### 2. Configure `settings.json`
-Open settings (`Cmd+,` or `Cmd+Shift+P` → `zed: open settings`) and add your 42 login and email:
+### 2. Install Dev Extension in Zed
+1. Open Zed.
+2. Press `Cmd+Shift+P` (macOS) / `Ctrl+Shift+P` (Linux/Windows) and run **`zed: install dev extension`**.
+3. Select the `zed-42header` repository directory.
+
+---
+
+## Configuration (Optional)
+
+By default, the header uses `marvin` and `marvin@student.42.fr` if no configuration is provided.
+
+To configure your own 42 login and email:
+1. Open the Command Palette (`Cmd+Shift+P` on macOS / `Ctrl+Shift+P` on Linux/Windows) and select **`zed: open settings`** *(or click the `{}` icon in the top right of the Settings tab)* to open your `settings.json`.
+2. Add your login and email, and enable `format_on_save`:
 
 ```json
 {
@@ -25,24 +41,17 @@ Open settings (`Cmd+,` or `Cmd+Shift+P` → `zed: open settings`) and add your 4
         "mail": "your_42_login@student.42.fr"
       }
     }
-  },
-  "languages": {
-    "C": { "language_servers": ["header42-lsp", "..."] },
-    "C++": { "language_servers": ["header42-lsp", "..."] },
-    "Python": { "language_servers": ["header42-lsp", "..."] },
-    "Makefile": { "language_servers": ["header42-lsp", "..."] },
-    "Bash": { "language_servers": ["header42-lsp", "..."] },
-    "Shell Script": { "language_servers": ["header42-lsp", "..."] },
-    "Rust": { "language_servers": ["header42-lsp", "..."] },
-    "Go": { "language_servers": ["header42-lsp", "..."] },
-    "JavaScript": { "language_servers": ["header42-lsp", "..."] },
-    "TypeScript": { "language_servers": ["header42-lsp", "..."] }
   }
 }
 ```
 
-### 3. Keybindings (`keymap.json`)
-Open keymap (`Cmd+Shift+P` → `zed: open keymap`) to bind `F1` (standard 42 Vim shortcut):
+---
+
+## Keybindings (Optional)
+
+To bind `F1` (standard 42 Vim shortcut) or `Cmd+Shift+H`:
+1. Press `Cmd+Shift+P` / `Ctrl+Shift+P` and select **`zed: open keymap`**.
+2. Paste the following into `keymap.json`:
 
 ```json
 [
