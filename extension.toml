@@ -2,31 +2,36 @@ id = "42header"
 name = "42 Header"
 version = "0.1.0"
 schema_version = 1
-authors = ["fkyros <github.com/fkyros>"]
+authors = ["Gabri & 42 Community <github.com/fkyros>"]
 description = "Community-driven port of the 42 School file header for Zed Editor"
 repository = "https://github.com/fkyros/zed-42header"
 
 [language_servers.header42-lsp]
 name = "42 Header Language Server"
 languages = [
+    "Assembly",
+    "Bash",
     "C",
     "C++",
-    "Rust",
-    "Python",
+    "CSS",
+    "Fortran",
     "Go",
+    "HTML",
     "Java",
     "JavaScript",
-    "TypeScript",
-    "TSX",
-    "HTML",
-    "CSS",
-    "SCSS",
+    "Kotlin",
+    "LaTeX",
     "Lua",
     "Makefile",
-    "Shell Script",
-    "Assembly",
-    "Vimscript",
+    "OCaml",
     "PHP",
-    "Kotlin",
-    "OCaml"
+    "Python",
+    "Rust",
+    "SCSS",
+    "Shell Script",
+    "TSX",
+    "TypeScript",
+    "Vimscript",
+    "XML"
 ]
+

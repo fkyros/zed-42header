@@ -86,7 +86,7 @@ To trigger the header code action with `<F1>` or custom shortcuts, add the follo
 
 | File Types | Delimiters | Fill | Width |
 | :--- | :--- | :--- | :--- |
-| `.c`, `.h`, `.cpp`, `.hpp`, `.rs`, `.go`, `.java`, `.kt`, `.php`, `.css` | `/* ... */` | `*` | 80 |
+| `.c`, `.h`, `.cpp`, `.hpp`, `.rs`, `.go`, `.java`, `.kt`, `.php`, `.css`, `.scss` | `/* ... */` | `*` | 80 |
 | `.html`, `.htm`, `.xml` | `<!-- ... -->` | `*` | 80 |
 | `.js`, `.ts`, `.jsx`, `.tsx` | `// ... //` | `*` | 80 |
 | `.py` | `# ... #` | `*` | 79 |
@@ -97,6 +97,27 @@ To trigger the header code action with `<F1>` or custom shortcuts, add the follo
 | `.ml`, `.mli` | `(* ... *)` | `*` | 80 |
 | `.vim`, `.vimrc` | `" ... "` | `*` | 80 |
 | `.f90`, `.f95`, `.for` | `! ... !` | `/` | 80 |
+
+---
+
+## Zed LSP Activation Model
+
+Zed follows a strict declarative activation model for extensions and language servers. For `header42-lsp` to attach to a buffer and provide code actions (inserting the header) and formatting (updating the timestamp on save), Zed requires the target language ID to be explicitly registered in `extension.toml` under `[language_servers.header42-lsp].languages`.
+
+### How It Works
+
+1. **Declarative Routing**: Unlike editors that allow arbitrary global LSP hooks or dynamic language detection at runtime, Zed indexes language servers based on static language IDs defined in `extension.toml`.
+2. **Buffer Attachment**: When an editor buffer is opened, Zed evaluates the buffer's active language grammar against the declared `languages` list. If a match is found, Zed activates `header42-lsp` (starting the server if not already running) and binds LSP capabilities (`textDocument/codeAction`, `textDocument/formatting`) to that buffer.
+3. **Custom / Additional Languages**: If you use custom language grammars or filetypes not listed by default, you can explicitly associate `header42-lsp` with that language in your Zed `settings.json`:
+   ```json
+   {
+     "languages": {
+       "MyCustomLanguage": {
+         "language_servers": ["header42-lsp", "..."]
+       }
+     }
+   }
+   ```
 
 ---
 
@@ -113,4 +134,5 @@ The extension consists of two components:
 This project is licensed under the [MIT License](LICENSE).
 
 Upstream 42 header formatting and ASCII art are ported from [`42Paris/42header`](https://github.com/42Paris/42header), which is dedicated to the Public Domain.
+
 
