@@ -23,7 +23,13 @@ pub fn get_delimiters(file_path: &str) -> CommentDelimiters {
         .unwrap_or("")
         .to_lowercase();
 
-    if file_name == "makefile" || file_name.starts_with("makefile.") || file_name.ends_with(".mk") {
+    if file_name == "makefile"
+        || file_name.starts_with("makefile.")
+        || file_name.ends_with(".mk")
+        || file_name.ends_with(".mak")
+        || file_name == "gnumakefile"
+        || file_name == "ocamlmakefile"
+    {
         return CommentDelimiters {
             start: "#",
             end: "#",

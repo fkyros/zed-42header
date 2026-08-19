@@ -46,6 +46,7 @@ To configure your own 42 login and email:
     "C": { "language_servers": ["header42-lsp", "..."] },
     "C++": { "language_servers": ["header42-lsp", "..."] },
     "Python": { "language_servers": ["header42-lsp", "..."] },
+    "Make": { "language_servers": ["header42-lsp", "..."] },
     "Makefile": { "language_servers": ["header42-lsp", "..."] }
   }
 }
@@ -82,6 +83,9 @@ To bind **`Cmd+Shift+H`** or **`F1`** (standard 42 Vim shortcut) for one-click h
 
 1. **Insert Header**: Press **`Cmd+Shift+H`** or **`F1`** in any file and select **"Insert 42 Header"**.
 2. **Auto-Update Timestamp**: Save the file (**`Cmd+S`** / **`Ctrl+S`**). The `Updated:` line on line 9 updates automatically on every save.
+
+> [!TIP]
+> **Troubleshooting**: If the header action does not appear after changing settings or loading the extension, open the Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`) and run **`editor: restart language server`** (or close and reopen the tab).
 
 ---
 
