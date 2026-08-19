@@ -1,9 +1,9 @@
 [package]
 name = "zed-42header"
 version = "0.1.0"
-edition = "2021"
-authors = ["Gabri & 42 Community <github.com/fkyros>"]
-description = "Community-driven port of the 42 School file header for Zed Editor"
+edition = "2026"
+authors = ["gade-oli <gade-oli@student.42madrid.com>"]
+description = "42 School file header"
 license = "MIT"
 repository = "https://github.com/fkyros/zed-42header"
 
@@ -17,4 +17,3 @@ zed_extension_api = "0.7.0"
 [workspace]
 members = [".", "server"]
 default-members = ["."]
-
