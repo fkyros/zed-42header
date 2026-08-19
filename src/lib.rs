@@ -21,6 +21,11 @@ impl Header42Extension {
             return Ok(path);
         }
 
+        if std::fs::metadata("header42-lsp").map_or(false, |stat| stat.is_file()) {
+            self.cached_binary_path = Some("header42-lsp".to_string());
+            return Ok("header42-lsp".to_string());
+        }
+
         let (os, arch) = zed::current_platform();
         let asset_name = format!(
             "header42-lsp-{arch}-{os}",
@@ -49,7 +54,14 @@ impl Header42Extension {
                     require_assets: true,
                     pre_release: false,
                 },
-            )?;
+            )
+            .map_err(|e| {
+                format!(
+                    "header42-lsp not found in PATH (~/.cargo/bin or /opt/homebrew/bin). \
+                    GitHub release lookup also failed: {e}. \
+                    Please ensure header42-lsp is built and placed in ~/.cargo/bin or /opt/homebrew/bin."
+                )
+            })?;
 
             let asset = release
                 .assets
@@ -90,9 +102,7 @@ impl zed::Extension for Header42Extension {
         language_server_id: &zed::LanguageServerId,
         worktree: &zed::Worktree,
     ) -> zed::Result<zed::Command> {
-        let binary_path = self
-            .language_server_binary_path(language_server_id, worktree)
-            .unwrap_or_else(|_| "header42-lsp".to_string());
+        let binary_path = self.language_server_binary_path(language_server_id, worktree)?;
 
         Ok(zed::Command {
             command: binary_path,

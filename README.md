@@ -1,6 +1,6 @@
 # 42 Header for Zed
 
-Community-driven port of the standardized [`42Paris/42header`](https://github.com/42Paris/42header) plugin for the [Zed Editor](https://zed.dev).
+Community-driven port of the standardized [`42Paris/42header`](https://github.com/42Paris/42header) plugin for the [Zed Editor](https://zed.dev), coded with Google Antigravity.
 
 `zed-42header` is an independent, community-driven port that automatically inserts the standardized 42 Network 11-line file header and updates timestamps on save across all major languages used in the 42 curriculum.
 
@@ -44,9 +44,17 @@ Then in Zed, run `zed: extensions` -> `Install Dev Extension` and select the rep
 
 ---
 
-## Configuration
+## Setup & Configuration (Copy & Paste)
 
-In your Zed `settings.json` (`~/.config/zed/settings.json` on macOS/Linux or `%APPDATA%\Zed\settings.json` on Windows):
+To get one-click header insertion and automatic timestamp updates on save, add the snippets below to your Zed config files.
+
+### 1. `settings.json` (Auto-update on save & User info)
+
+Open settings in Zed:
+* **macOS**: `Cmd+,` or press `Cmd+Shift+P` and type `zed: open settings`
+* **Linux / Windows**: `Ctrl+,` or press `Ctrl+Shift+P` and type `zed: open settings`
+
+Copy and paste this into your `settings.json`:
 
 ```json
 {
@@ -58,15 +66,33 @@ In your Zed `settings.json` (`~/.config/zed/settings.json` on macOS/Linux or `%A
         "mail": "your_42_login@student.42.fr"
       }
     }
+  },
+  "languages": {
+    "C": { "language_servers": ["header42-lsp", "..."] },
+    "C++": { "language_servers": ["header42-lsp", "..."] },
+    "Python": { "language_servers": ["header42-lsp", "..."] },
+    "Makefile": { "language_servers": ["header42-lsp", "..."] },
+    "Bash": { "language_servers": ["header42-lsp", "..."] },
+    "Shell Script": { "language_servers": ["header42-lsp", "..."] },
+    "Rust": { "language_servers": ["header42-lsp", "..."] },
+    "Go": { "language_servers": ["header42-lsp", "..."] },
+    "JavaScript": { "language_servers": ["header42-lsp", "..."] },
+    "TypeScript": { "language_servers": ["header42-lsp", "..."] }
   }
 }
 ```
 
+> [!NOTE]
+> If `user` or `mail` are omitted, `header42-lsp` automatically falls back to `$USER42` / `$MAIL42`, or `$USER` / `<user>@student.42.fr`.
+
 ---
 
-## Keybindings (Vim `<F1>` Parity)
+### 2. `keymap.json` (F1 & Shortcut for Header Insertion)
 
-To trigger the header code action with `<F1>` or custom shortcuts, add the following to your Zed `keymap.json`:
+Open keymap in Zed:
+* Press `Cmd+Shift+P` (macOS) / `Ctrl+Shift+P` (Linux/Windows) and type **`zed: open keymap`**.
+
+Copy and paste this into your `keymap.json`:
 
 ```json
 [
@@ -74,11 +100,19 @@ To trigger the header code action with `<F1>` or custom shortcuts, add the follo
     "context": "Editor",
     "bindings": {
       "f1": "editor::ToggleCodeActions",
-      "cmd-shift-h": "editor::ToggleCodeActions"
+      "cmd-shift-h": "editor::ToggleCodeActions",
+      "ctrl-shift-h": "editor::ToggleCodeActions"
     }
   }
 ]
 ```
+
+---
+
+## How to Use
+
+1. **Insert Header**: Open any file and press **`F1`** (or **`Cmd+.`** / **`Ctrl+.`**), then select **"Insert 42 Header"**.
+2. **Update Timestamp**: Simply save the file (**`Cmd+S`** / **`Ctrl+S`**). The `Updated:` line on line 9 will automatically update to the current date, time, and user.
 
 ---
 
@@ -134,5 +168,3 @@ The extension consists of two components:
 This project is licensed under the [MIT License](LICENSE).
 
 Upstream 42 header formatting and ASCII art are ported from [`42Paris/42header`](https://github.com/42Paris/42header), which is dedicated to the Public Domain.
-
-

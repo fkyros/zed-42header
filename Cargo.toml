@@ -1,11 +1,20 @@
-[workspace]
-members = ["src", "server"]
-resolver = "2"
-
-[workspace.package]
+[package]
+name = "zed-42header"
 version = "0.1.0"
 edition = "2021"
 authors = ["Gabri & 42 Community <github.com/fkyros>"]
+description = "Community-driven port of the 42 School file header for Zed Editor"
 license = "MIT"
 repository = "https://github.com/fkyros/zed-42header"
-description = "Community-driven port of the 42 School file header for Zed Editor"
+
+[lib]
+crate-type = ["cdylib"]
+path = "src/lib.rs"
+
+[dependencies]
+zed_extension_api = "0.7.0"
+
+[workspace]
+members = [".", "server"]
+default-members = ["."]
+

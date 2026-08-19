@@ -8,10 +8,12 @@ This guide walks you through testing and verifying the `zed-42header` extension 
 
 Ensure you have the following installed on your development machine:
 
-1. **Rust Toolchain**: `rustc` and `cargo` (1.80+ recommended).
+1. **Rust Toolchain**: `rustc` and `cargo` (1.80+ recommended) managed via `rustup`.
    ```bash
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
    ```
+   > [!TIP]
+   > Ensure `~/.cargo/bin` or your `rustup` toolchain binary path is in your `$PATH` (especially if you have standalone Homebrew `rust` installed).
 2. **WASM Compilation Target**: Zed builds dev extensions targeting WASI.
    ```bash
    rustup target add wasm32-wasip2
@@ -193,3 +195,8 @@ In Zed's status bar (bottom right), check for active language servers on the cur
 2. **Save does not update timestamp**:
    - Check that `"format_on_save": "on"` is enabled in your Zed `settings.json`.
    - Ensure the file already contains a valid 42 header within lines 1–11.
+
+3. **`Failed to install dev extension` or `No extension manifest found`**:
+   - Ensure you select the repository root folder (`zed-42header`), which contains `extension.toml` and `Cargo.toml`.
+   - Verify `rustup target add wasm32-wasip2` was run for your active Rust toolchain.
+   - If you have Homebrew's `rust` installed alongside `rustup`, ensure `rustup`'s binaries take precedence in `$PATH` (`export PATH="/opt/homebrew/opt/rustup/bin:$HOME/.cargo/bin:$PATH"`).
